@@ -33,7 +33,6 @@ router.get('/getAllCaseStudies', caseStudyController.getAllCaseStudies);
 router.get('/getCaseStudy/:id', caseStudyController.getCaseStudy);
 router.put(
     '/updateCaseStudy/:id',
-    isAdmin,
     upload.fields([
         {name: 'backstory[image]', maxCount: 1},
         {name: 'challenge[image]', maxCount: 1},
@@ -43,12 +42,12 @@ router.put(
     ]),
     caseStudyController.updateCaseStudy
 );
-router.delete('/deleteCaseStudy/:id', isAdmin, caseStudyController.deleteCaseStudy);
-router.post('/add-category', isAdmin, categoryController.createCategory);
+router.delete('/deleteCaseStudy/:id', caseStudyController.deleteCaseStudy);
+router.post('/add-category', categoryController.createCategory);
 router.get('/get-categories', categoryController.getAllCategories);
 router.get('/get-category/:id', categoryController.getCategory);
-router.put('/edit-category/:id', isAdminOrWriter, categoryController.updateCategory);
-router.delete('/delete-category/:id', isAdminOrWriter, categoryController.deleteCategory);
+router.put('/edit-category/:id', categoryController.updateCategory);
+router.delete('/delete-category/:id', categoryController.deleteCategory);
 router.get('/getSuggestedCaseStudy/:category', caseStudyController.suggestedCaseStudy);
 router.get('/getCaseStudyByIntroductionTitle/:title', caseStudyController.getCaseStudyByTitle);
 
