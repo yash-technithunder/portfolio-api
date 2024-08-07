@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  node_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio-node-app
+    environment:
+      - PORT=8004
+      - MONGO_URI=mongodb+srv://yshukla:coder9999999********@cluster0.2tewobr.mongodb.net/
+      - TOKEN_SECRET=technithunder-backend
+    ports:
+      - '8004:8004'
+    volumes:
+      - .:/usr/src/app
+    command: npm run dev
