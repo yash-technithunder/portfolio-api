@@ -75,7 +75,7 @@ const caseStudySchema = new mongoose.Schema<CaseStudyDocument>(
         },
         name: {
             type: String,
-            required: false
+            required: true
         }
     },
     {

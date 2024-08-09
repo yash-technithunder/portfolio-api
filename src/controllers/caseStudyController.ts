@@ -45,6 +45,7 @@ const createCaseStudy = async (req: Request, res: Response) => {
         const caseStudyData = {
             category: req.body['category'],
             techStack: techStack,
+            name: req.body.name,
             introduction: {
                 descriptions: req.body.introduction.descriptions,
                 image: getImgUrl('introduction[image]'),
@@ -141,6 +142,7 @@ const updateCaseStudy = async (req: Request, res: Response) => {
         const updatedCaseStudyData = {
             category: category,
             techStack: techStack,
+            name: req.body.name,
             introduction: {
                 descriptions: introductionDesc,
                 image: imageUrls[2] || existingCaseStudy?.introduction?.image,
