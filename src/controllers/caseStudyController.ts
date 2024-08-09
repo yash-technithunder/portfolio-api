@@ -309,7 +309,26 @@ const getCaseStudyByTitle = async (req: Request, res: Response) => {
         });
     }
 };
-
+const getCaseStudyByName = async (req: Request, res: Response) => {
+    try {
+        const {name} = req.params;
+        const caseStudy = await CaseStudy.findOne({name: name});
+        if (caseStudy) {
+            return res.status(200).json({
+                success: true,
+                data: caseStudy,
+                message: 'caseStudy fetched by name '
+            });
+        } else {
+            return res.status(404).json({message: 'caseStudy not found'});
+        }
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: 'error occured while fetching caseStudy by name'
+        });
+    }
+};
 const caseStudyController = {
     createCaseStudy,
     getAllCaseStudies,
@@ -317,6 +336,7 @@ const caseStudyController = {
     deleteCaseStudy,
     updateCaseStudy,
     suggestedCaseStudy,
-    getCaseStudyByTitle
+    getCaseStudyByTitle,
+    getCaseStudyByName
 };
 export default caseStudyController;

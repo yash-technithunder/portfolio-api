@@ -50,5 +50,6 @@ router.put('/edit-category/:id', categoryController.updateCategory);
 router.delete('/delete-category/:id', categoryController.deleteCategory);
 router.get('/getSuggestedCaseStudy/:category', caseStudyController.suggestedCaseStudy);
 router.get('/getCaseStudyByIntroductionTitle/:title', caseStudyController.getCaseStudyByTitle);
+router.get('/getCaseStudyByName/:name', caseStudyController.getCaseStudyByName);
 
 export default router;
