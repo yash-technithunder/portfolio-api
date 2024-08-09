@@ -317,10 +317,10 @@ const getCaseStudyByName = async (req: Request, res: Response) => {
             return res.status(200).json({
                 success: true,
                 data: caseStudy,
-                message: 'caseStudy fetched by name '
+                message: 'caseStudy fetched by name successfully '
             });
         } else {
-            return res.status(404).json({message: 'caseStudy not found'});
+            return res.status(404).json({message: 'caseStudy not found by name'});
         }
     } catch (error) {
         return res.status(500).json({
