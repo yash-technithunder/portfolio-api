@@ -196,6 +196,7 @@ export interface IReview {
 export interface CaseStudyDocument extends Document {
     category: string;
     name: string;
+    coverImage: string;
     techStack: string[];
     introduction: {
         descriptions: string[];

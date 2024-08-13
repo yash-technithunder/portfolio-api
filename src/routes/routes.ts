@@ -21,6 +21,7 @@ router.post('/register', adminController.register);
 router.post(
     '/addCaseStudy',
     upload.fields([
+        {name: 'coverImage', maxCount: 1},
         {name: 'backstory[image]', maxCount: 1},
         {name: 'challenge[image]', maxCount: 1},
         {name: 'introduction[image]', maxCount: 1},
@@ -34,6 +35,7 @@ router.get('/getCaseStudy/:id', caseStudyController.getCaseStudy);
 router.put(
     '/updateCaseStudy/:id',
     upload.fields([
+        {name: 'coverImage', maxCount: 1},
         {name: 'backstory[image]', maxCount: 1},
         {name: 'challenge[image]', maxCount: 1},
         {name: 'introduction[image]', maxCount: 1},

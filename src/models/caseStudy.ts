@@ -7,6 +7,10 @@ const caseStudySchema = new mongoose.Schema<CaseStudyDocument>(
             type: String,
             required: true
         },
+        coverImage: {
+            type: String,
+            required: true
+        },
         techStack: {
             type: [String],
             required: true
